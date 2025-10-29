@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario: Introducción a PHP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .question {
+            margin-top: 15px;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cuestionario: Introducción a PHP</h1>
+        <h2>Parte 1: Opción múltiple</h2>
+
+        <div class="question">
+            <p><strong>¿Qué significa PHP?</strong></p>
+
+            <label><input type="radio" name="respuesta" value="a"> a) Personal Home Page</label>
+            <label><input type="radio" name="respuesta" value="b"> b) PHP: Hypertext Preprocessor</label>
+            <label><input type="radio" name="respuesta" value="c"> c) Private Hosting Protocol</label>
+            <label><input type="radio" name="respuesta" value="d"> d) Program Hypertext Parser</label>
+
+            <button onclick="verificar()">Comprobar respuesta</button>
+
+            <p class="resultado" id="resultado"></p>
+        </div>
+    </div>
+
+    <script>
+        function verificar() {
+            const seleccion = document.querySelector('input[name="respuesta"]:checked');
+            const resultado = document.getElementById('resultado');
+
+            if (!seleccion) {
+                resultado.textContent = "Por favor, selecciona una respuesta.";
+                resultado.style.color = "orange";
+                return;
+            }
+
+            if (seleccion.value === "b") {
+                resultado.textContent = "✅ ¡Correcto! PHP significa 'PHP: Hypertext Preprocessor'.";
+                resultado.style.color = "green";
+            } else {
+                resultado.textContent = "❌ Incorrecto. La respuesta correcta es 'PHP: Hypertext Preprocessor'.";
+                resultado.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
